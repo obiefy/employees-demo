@@ -19,30 +19,8 @@ class CompanyController extends Controller
     public function index()
     {
         return view('company.index')->with([
-            'companies' => Company::paginate(10)
+            'companies' => Company::paginate(config('ok-tamam.pagination'))
         ]);
-    }
-
-    /**
-     * Show the form for creating a new company.
-     *
-     * @return Factory|View
-     */
-    public function create()
-    {
-        return view('company.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreCompanyRequest $request
-     * @return void
-     */
-    public function store(StoreCompanyRequest $request)
-    {
-
-        return view();
     }
 
     /**
@@ -53,7 +31,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return view('company.show')->withCompany($company);
     }
 
     /**

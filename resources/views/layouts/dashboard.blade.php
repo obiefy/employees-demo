@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-3 pl-5">
             <div class="list-group">
-                <a href="" class="list-group-item list-group-item-primary">
+                <a href="{{ route('company.index') }}" class="list-group-item list-group-item-primary">
                     Manage Companies
                 </a>
                 <a href="" class="list-group-item">

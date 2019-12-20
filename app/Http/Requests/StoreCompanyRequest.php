@@ -25,8 +25,9 @@ class StoreCompanyRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'email',
-            'logo' => 'mimes:jpeg,png,jpg|dimensions:min_height=100,min_width=100'
+            'email' => 'nullable|email',
+            'website' => 'nullable|url',
+            'logo' => 'nullable|mimes:jpeg,png,jpg|dimensions:min_height=100,min_width=100'
         ];
     }
 }

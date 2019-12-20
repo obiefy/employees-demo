@@ -5,9 +5,15 @@ namespace App\Http\Controllers\API;
 use App\Company;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCompanyRequest as StoreRequest;
+use Illuminate\Http\JsonResponse;
+
 class CompanyApiController extends Controller
 {
 
+    /**
+     * @param StoreRequest $request
+     * @return JsonResponse
+     */
     public function __invoke(StoreRequest $request)
     {
         $company = Company::make($request->validated());
@@ -17,8 +23,11 @@ class CompanyApiController extends Controller
 
         $company->save();
         return response()->json([
-            'company' => $company,
-            'message' => __('operation.successfully.create', ['item' => $company->name])
+            'company' => [
+                'name' => $company->name,
+                'logo' => $company->logo,
+            ],
+            'message' => __('operations.successful.store', ['item' => $company->name])
         ]);
     }
 

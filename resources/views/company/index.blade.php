@@ -23,7 +23,7 @@
                     <th scope="row">
                         <div class="media align-items-center">
                             <a href="#" class="avatar rounded-circle mr-3">
-                                <img alt="{{ $company->name }}" src="{{ $company->logo }}">
+                                <img alt="{{ $company->name }}" src="{{ $company->logo }}" height="100%">
                             </a>
                             <div class="media-body">
                                 <span class="mb-0 text-sm">{{ $company->name }}</span>

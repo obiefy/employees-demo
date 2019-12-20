@@ -12,7 +12,7 @@ class Company extends Model
     public function getLogoAttribute($logo)
     {
         if(!is_null($logo)){
-            return $logo;
+            return url(str_replace('public', 'storage', $logo));
         }
         return asset('images/default-logo.jpg');
     }

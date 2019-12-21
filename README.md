@@ -20,10 +20,14 @@ $ php artisan key:generate
 
 ##### 4. Migrate and Seed the database
 ```shell script
-$ php artisan db:migrate --seed
+$ php artisan migrate --seed
 ```
 
-##### 4. Serve the project on port 8080
+##### 5. Serve the project on port 8080
 ```shell script
 $ php artisan serve --port=8080
 ```
+
+##### 6. Login with credentials
+email: admin@admin.com
+pass: password

@@ -4,11 +4,15 @@ namespace App;
 
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Company extends Model
 {
-    protected $fillable = ['name', 'email', 'website'];
 
+    /**
+     * @var array
+     */
+    protected $fillable = ['name', 'email', 'website'];
 
     /**
      * @param $logo
@@ -22,6 +26,9 @@ class Company extends Model
         return asset('images/default-logo.jpg');
     }
 
+    /**
+     * @return HasMany
+     */
     public function employees()
     {
         return $this->hasMany(Employee::class);

@@ -20,7 +20,6 @@ class CompanyApiController extends Controller
         if($logo = $request->file('logo')){
             $company->logo = $logo->store('public/companies');
         }
-
         $company->save();
         return response()->json([
             'company' => $company->only('name', 'logo'),

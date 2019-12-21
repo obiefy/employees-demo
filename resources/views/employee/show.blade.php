@@ -4,7 +4,6 @@
     <div class="card">
         <div class="card-header">{{ $employee->full_name }}</div>
         <div class="card-body">
-
             <strong>First Name</strong>
             <p>{{ $employee->first_name }}</p>
             <strong>Last Name</strong>

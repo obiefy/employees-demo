@@ -23,7 +23,7 @@
 
         </div>
         <div class="card-footer">
-            <a href="{{ route('company.edit', $company) }}" class="btn btn-secondary text-primary">Edit</a>
+            <a href="{{ route('companies.edit', $company) }}" class="btn btn-secondary text-primary">Edit</a>
             <button type="button" class="btn btn-secondary text-danger" data-toggle="modal"
                     data-target="#deleteCompanyModal">
                 Delete
@@ -39,7 +39,7 @@
          aria-labelledby="deleteCompanyModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
             <div class="modal-content">
-                <form class="confirm" action="{{ route('company.destroy', $company) }}" method="POST">
+                <form class="confirm" action="{{ route('companies.destroy', $company) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <div class="modal-body">

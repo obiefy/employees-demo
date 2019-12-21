@@ -59,7 +59,7 @@ class CompanyController extends Controller
             $company->logo = $logo->store('public/companies');
         }
         $company->update();
-        return redirect()->route('company.show', $company)->withSuccess('Company Updated Successfully');
+        return redirect()->route('companies.show', $company)->withSuccess('Company Updated Successfully');
     }
 
     /**
@@ -76,6 +76,6 @@ class CompanyController extends Controller
         }
 
         $company->delete();
-        return redirect()->route('company.index')->withSuccess($company->name . ' Deleted successfully');
+        return redirect()->route('companies.index')->withSuccess($company->name . ' Deleted successfully');
     }
 }

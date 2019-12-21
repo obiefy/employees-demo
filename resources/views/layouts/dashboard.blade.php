@@ -3,10 +3,10 @@
     <div class="row">
         <div class="col-md-3 pl-5">
             <div class="list-group">
-                <a href="{{ route('company.index') }}" class="list-group-item list-group-item-primary">
+                <a href="{{ route('companies.index') }}" class="list-group-item {{ request()->is('companies*') ? 'list-group-item-primary' : '' }}">
                     Manage Companies
                 </a>
-                <a href="" class="list-group-item">
+                <a href="{{ route('employees.index') }}" class="list-group-item">
                     Manage Employees
                 </a>
             </div>

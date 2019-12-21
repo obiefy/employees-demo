@@ -47,7 +47,7 @@
                             </td>
                             <td class="">
                                 <div class="btn-group">
-                                    <a href="{{ route('company.show', $company) }}"
+                                    <a href="{{ route('companies.show', $company) }}"
                                        class="btn btn-secondary text-gray btn-sm">Show</a>
                                 </div>
                             </td>

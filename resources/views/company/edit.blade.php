@@ -3,7 +3,7 @@
 @section('main')
     <div class="card">
         <div class="card-header">Edit {{ $company->name }}</div>
-        <form action="{{ route('company.update', $company) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('companies.update', $company) }}" method="POST" enctype="multipart/form-data">
             <div class="card-body">
                 @csrf
                 @method('PUT')
@@ -27,31 +27,10 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a href="{{ route('company.show', $company) }}" class="btn btn-secondary text-gray">Cancel</a>
+                <a href="{{ route('companies.show', $company) }}" class="btn btn-secondary text-gray">Cancel</a>
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </form>
     </div>
 
-    <!-- Button trigger modal -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="deleteCompanyModal" tabindex="-1" role="dialog"
-         aria-labelledby="deleteCompanyModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <form class="confirm" action="{{ route('company.destroy', $company) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <div class="modal-body">
-                        Are you sure to delete {{ $company->name }} ?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 @endsection

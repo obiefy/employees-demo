@@ -9,11 +9,15 @@ $ git clone https://github.com/obiefy/employees-demo.git
 ```shell script
 $ composer install
 ```
-##### 3. Generate application key
+##### 3. Create .env file
+```shell script
+$ cp .env.example .env
+```
+##### 4. Generate application key
 ```shell script
 $ php artisan key:generate
 ```
-##### 4. Create .env file
+
 ##### 4. Migrate and Seed the database
 ```shell script
 $ php artisan db:migrate --seed

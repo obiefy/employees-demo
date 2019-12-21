@@ -23,6 +23,12 @@ $ php artisan key:generate
 $ php artisan migrate --seed
 ```
 
+
+##### 4. Link storage
+```shell script
+$ php artisan storage:link
+```
+
 ##### 5. Serve the project on port 8080
 ```shell script
 $ php artisan serve --port=8080
@@ -30,4 +36,5 @@ $ php artisan serve --port=8080
 
 ##### 6. Login with credentials
 email: admin@admin.com
+
 pass: password

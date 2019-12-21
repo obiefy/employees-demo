@@ -1916,7 +1916,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "create",
@@ -1975,6 +1974,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://127.0.0.1:8080/api/company', this.getForm()).then(function (response) {
                   _this.loading = false;
+                  _this.form = {
+                    name: '',
+                    email: '',
+                    website: '',
+                    logo: ''
+                  };
                   _this.message = response.data.message;
                   _this.company = response.data.company;
                 })["catch"](function (error) {

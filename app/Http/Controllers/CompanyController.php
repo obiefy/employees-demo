@@ -57,6 +57,10 @@ class CompanyController extends Controller
     {
         $company->fill($request->validated());
         if($logo = $request->file('logo')){
+            $originalLogo = $company->getOriginal()['logo'];
+            if(Storage::exists($originalLogo)){
+                Storage::delete($originalLogo);
+            }
             $company->logo = $logo->store('public/companies');
         }
         $company->update();

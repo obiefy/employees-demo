@@ -7,7 +7,6 @@
         </div>
 
 
-
         <div v-if="hasCompany">
             <div class="alert alert-success">
                 {{ this.message }}
@@ -76,7 +75,7 @@
         },
         computed: {
             hasErrors() {
-              return Object.keys(this.errors).length > 0;
+                return Object.keys(this.errors).length > 0;
             },
             hasCompany() {
                 return Object.keys(this.company).length > 0;
@@ -89,7 +88,7 @@
                 }
                 this.form.logo = e.target.files[0];
             },
-            getForm(){
+            getForm() {
                 let form = new FormData();
                 form.append('name', this.form.name);
                 form.append('website', this.form.website);
@@ -106,6 +105,12 @@
                 await axios.post('http://127.0.0.1:8080/api/company', this.getForm())
                     .then(response => {
                         this.loading = false;
+                        this.form = {
+                            name: '',
+                            email: '',
+                            website: '',
+                            logo: '',
+                        };
                         this.message = response.data.message;
                         this.company = response.data.company;
                     })

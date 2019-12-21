@@ -2,7 +2,13 @@
 
 @section('main')
     <div class="card">
-        <div class="card-header">{{ $company->name }}</div>
+        <div class="card-header">
+            {{ $company->name }}
+            <span class="badge badge-primary ml-2">
+                {{ $company->employees()->count() }}
+                Employee
+            </span>
+        </div>
         <div class="card-body">
             <img src="{{ $company->logo }}" alt="{{ $company->logo }}" width="250px"
                  class="mb-3 img-fluid rounded shadow-lg">

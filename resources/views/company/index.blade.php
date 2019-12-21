@@ -4,6 +4,10 @@
     <div class="card shadow">
         <div class="card-header border-0">
             <strong class="mb-0">Companies List</strong>
+            <span class="badge badge-primary ml-2">
+                {{ $companies->total() }}
+                Company
+            </span>
             <a class="btn btn-primary text-white float-right btn-sm" data-toggle="modal"
                data-target="#createCompanyModal">New</a>
         </div>

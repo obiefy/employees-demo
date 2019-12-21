@@ -4,14 +4,17 @@
     <div class="card shadow">
         <div class="card-header border-0">
             <strong class="mb-0">Employees List</strong>
+            <span class="badge badge-primary ml-2">
+                {{ $employees->total() }}
+                Employee
+            </span>
             <a href="{{ route('employees.create') }}" class="btn btn-primary text-white float-right btn-sm">New</a>
         </div>
         @if($employees->count() == 0)
             <div class="card-body">
                 <div class="alert alert-light">
                     No Items founded,
-                    <a class="btn btn-primary text-white float-right btn-sm" data-toggle="modal"
-                       data-target="#createCompanyModal">Create New</a>
+                    <a href="{{ route('employees.create') }}" class="btn btn-primary text-white float-right btn-sm">Create New</a>
                 </div>
             </div>
         @else
@@ -74,21 +77,4 @@
         @endif
     </div>
 
-    <!-- Create Company Modal -->
-    <div class="modal fade" id="createCompanyModal" tabindex="-1" role="dialog"
-         aria-labelledby="createCompanyModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-gradient-lighter">
-                    <h5 class="modal-title" id="createCompanyModalLabel">New Company</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <create-company></create-company>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

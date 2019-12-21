@@ -3,6 +3,9 @@
     <div class="row">
         <div class="col-md-3 pl-5">
             <div class="list-group">
+                <a href="{{ route('home') }}" class="list-group-item {{ request()->is('home*') ? 'list-group-item-primary' : '' }}">
+                    Dashboard
+                </a>
                 <a href="{{ route('companies.index') }}" class="list-group-item {{ request()->is('companies*') ? 'list-group-item-primary' : '' }}">
                     Manage Companies
                 </a>

@@ -21,5 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function (){
     Route::resource('companies', 'CompanyController')->except('create', 'store');
-    Route::resource('employees', 'CompanyController');
+    Route::resource('employees', 'EmployeeController');
 });

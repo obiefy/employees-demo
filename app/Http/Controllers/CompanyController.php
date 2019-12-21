@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Http\Requests\StoreCompanyRequest as UpdateRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
@@ -27,7 +28,7 @@ class CompanyController extends Controller
      * Display the specified resource.
      *
      * @param Company $company
-     * @return Response
+     * @return View
      */
     public function show(Company $company)
     {
@@ -38,7 +39,7 @@ class CompanyController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Company $company
-     * @return Response
+     * @return View
      */
     public function edit(Company $company)
     {
@@ -50,7 +51,7 @@ class CompanyController extends Controller
      *
      * @param UpdateRequest $request
      * @param Company $company
-     * @return void
+     * @return RedirectResponse
      */
     public function update(UpdateRequest $request, Company $company)
     {
@@ -66,7 +67,7 @@ class CompanyController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Company $company
-     * @return Response
+     * @return RedirectResponse
      */
     public function destroy(Company $company)
     {

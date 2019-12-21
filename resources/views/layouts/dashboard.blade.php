@@ -6,7 +6,7 @@
                 <a href="{{ route('companies.index') }}" class="list-group-item {{ request()->is('companies*') ? 'list-group-item-primary' : '' }}">
                     Manage Companies
                 </a>
-                <a href="{{ route('employees.index') }}" class="list-group-item">
+                <a href="{{ route('employees.index') }}" class="list-group-item {{ request()->is('employees*') ? 'list-group-item-primary' : ''}}">
                     Manage Employees
                 </a>
             </div>

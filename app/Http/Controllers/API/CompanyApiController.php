@@ -23,10 +23,7 @@ class CompanyApiController extends Controller
 
         $company->save();
         return response()->json([
-            'company' => [
-                'name' => $company->name,
-                'logo' => $company->logo,
-            ],
+            'company' => $company->only('name', 'logo'),
             'message' => __('operations.successful.store', ['item' => $company->name])
         ]);
     }

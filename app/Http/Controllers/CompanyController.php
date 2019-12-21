@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Company;
-use App\Http\Requests\StoreCompanyRequest;
-use Illuminate\Contracts\View\Factory;
+use App\Http\Requests\StoreCompanyRequest as UpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class CompanyController extends Controller
@@ -42,19 +42,24 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('company.edit')->withCompany($company);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdateRequest $request
      * @param Company $company
-     * @return Response
+     * @return void
      */
-    public function update(Request $request, Company $company)
+    public function update(UpdateRequest $request, Company $company)
     {
-        //
+        $company->fill($request->validated());
+        if($logo = $request->file('logo')){
+            $company->logo = $logo->store('public/companies');
+        }
+        $company->update();
+        return redirect()->route('company.show', $company)->withSuccess('Company Updated Successfully');
     }
 
     /**
@@ -65,6 +70,12 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        $originalLogo = $company->getOriginal()['logo'];
+        if(Storage::exists($originalLogo)){
+            Storage::delete($originalLogo);
+        }
+
+        $company->delete();
+        return redirect()->route('company.index')->withSuccess($company->name . ' Deleted successfully');
     }
 }

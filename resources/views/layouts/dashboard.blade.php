@@ -12,6 +12,12 @@
             </div>
         </div>
         <div class="col-md-9 pr-5">
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+
             @if($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -25,4 +31,4 @@
             @yield('main')
         </div>
     </div>
-    @endsection
+@endsection
